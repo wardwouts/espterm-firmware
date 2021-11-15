@@ -220,7 +220,7 @@ release:
 actual_all: parser $(TARGET_OUT) $(FW_BASE)
 
 libesphttpd/Makefile:
-	$(Q) [[ -e "libesphttpd/Makefile" ]] || echo -e "\e[31mlibesphttpd submodule missing.\nIf build fails, run \"git submodule init\" and \"git submodule update\".\e[0m"
+	$(Q) [ -e "libesphttpd/Makefile" ] || echo -e "\e[31mlibesphttpd submodule missing.\nIf build fails, run \"git submodule init\" and \"git submodule update\".\e[0m"
 
 libesphttpd: libesphttpd/Makefile
 	$(Q) make -C libesphttpd USE_OPENSDK=$(USE_OPENSDK) -j4
@@ -232,7 +232,7 @@ $(APP_AR): libesphttpd $(OBJ)
 checkdirs: $(BUILD_DIR) html/favicon.ico
 
 html/favicon.ico:
-	$(Q) [[ -e "html/favicon.ico" ]] || ./build_web.sh
+	$(Q) [ -e "html/favicon.ico" ] || ./build_web.sh
 
 $(BUILD_DIR):
 	$(Q) mkdir -p $@
